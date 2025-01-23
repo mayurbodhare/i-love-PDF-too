@@ -1,10 +1,11 @@
-import HeroSection from "@/components/HeroSection";
-import FeaturesSection from "../components/FeaturesSection";
-import HowItWorksSection from "@/components/HowItWorksSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import PricingSection from "@/components/PricingSection";
-import FAQSection from "@/components/FAQSection";
-import ContactSection from "@/components/ContactUsSection";
+import ContactSection from "@/components/ui/ContactUsSection";
+import FAQSection from "@/components/ui/FAQSection";
+import FeaturesSection from "@/components/ui/FeaturesSection";
+import HeroSection from "@/components/ui/HeroSection";
+import HowItWorksSection from "@/components/ui/HowItWorksSection";
+import PricingSection from "@/components/ui/PricingSection";
+import TestimonialsSection from "@/components/ui/TestimonialsSection";
+
 
 export default function Home() {
   return (
