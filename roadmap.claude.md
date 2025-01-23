@@ -2,8 +2,8 @@
 
 ## Phase 1: Foundation and Basic Setup (2-3 weeks)
 ### Tech Stack Selection
-- Frontend: React.js with TypeScript
-- Backend: Node.js with Express
+- Frontend: Next.js with TypeScript
+- Backend: Next.js with TypeScript
 - Database: MongoDB for user data and temporary file storage
 - Cloud Storage: AWS S3 or similar for file storage
 - PDF Processing: pdf-lib, pdf.js, or similar libraries

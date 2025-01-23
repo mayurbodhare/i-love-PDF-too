@@ -12,11 +12,11 @@
 - **Competitor Analysis:** Study iLovePDF, SmallPDF, and other similar tools.
 
 ## 2. **Technology Stack Selection**
-- **Frontend:** React.js, Next.js (for SSR/SEO optimization)
-- **Backend:** Node.js with Express.js (for API handling)
+- **Frontend:**  Next.js (for SSR/SEO optimization)
+- **Backend:** Next.js (for API handling)
 - **File Processing:**
-  - Libraries: PDFLib.js, pdf-lib, Ghostscript, or PyPDF2 (for server-side processing)
-  - OCR: Tesseract.js (client-side) or Tesseract OCR (server-side)
+  - Libraries: PDFLib.js, pdf-lib, Ghostscript
+  - OCR: Tesseract.js (client-side)
 - **Database:** PostgreSQL, MongoDB, or MySQL (for user data and usage tracking)
 - **Cloud Storage:** AWS S3, Google Cloud Storage, or Azure Blob Storage
 - **Authentication:** OAuth, Firebase Auth, or custom authentication
