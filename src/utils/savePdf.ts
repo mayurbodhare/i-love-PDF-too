@@ -18,11 +18,9 @@ async function ensureDirExists() {
 	}
 }
 
-async function savePdfOnServer(file: File): Promise<SavedFile> {
+async function savePdfOnServer(file: File, filename: string): Promise<SavedFile> {
 	try {
 		await ensureDirExists();
-
-		const filename = file.name;
 
 		// Convert the file to a buffer
 		const bytes = await file.arrayBuffer();
