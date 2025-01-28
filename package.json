@@ -11,6 +11,7 @@
   "dependencies": {
     "@aws-sdk/client-s3": "^3.726.1",
     "@types/clamscan": "^2.4.0",
+    "appwrite": "^16.1.0",
     "axios": "^1.7.9",
     "clamscan": "^2.4.0",
     "lucide-react": "^0.471.0",

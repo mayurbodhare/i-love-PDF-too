@@ -3,7 +3,7 @@ export interface StorageService{
     getFileUrl(fileId: string) : string;
     listFiles(): Promise<FileMeta[]>;
     deleteFile(fileId: string) : Promise<void>;
-    // getFilePreview(dileId: string, ):
+    getFilePreview(fileId: string, width?: number, height?: number) : string;
 }
 
 export type FileMeta = {
@@ -11,5 +11,6 @@ export type FileMeta = {
     name: string;
     url: string;
     size:number;
+    mimeType: string;
     uploadedAt: Date;
 }
