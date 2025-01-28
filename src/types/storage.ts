@@ -14,3 +14,10 @@ export type FileMeta = {
     mimeType: string;
     uploadedAt: Date;
 }
+
+export type FileResponse ={
+    id: string;
+    url: string;
+    name: string;
+    createdAt: string;
+}

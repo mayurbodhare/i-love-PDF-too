@@ -40,12 +40,12 @@ export class AppwriteStorage implements StorageService {
 
 	async deleteFile(fileId: string): Promise<void> {
 		const result = await this.storage.deleteFile(appwriteBucketId, fileId);
-        console.log("DeleteFile :" , result);
+        // console.log("DeleteFile :" , result);
 	}
 
     getFilePreview(fileId: string, width = 200, height = 300) : string{
         const result = this.storage.getFilePreview(appwriteBucketId, fileId, width, height, ImageGravity.Center, 80, undefined, undefined, undefined, undefined, undefined, undefined, ImageFormat.Webp);
-        console.log("GetFilePreview :",result);
+        // console.log("GetFilePreview :",result);
         return result;
     }
 }

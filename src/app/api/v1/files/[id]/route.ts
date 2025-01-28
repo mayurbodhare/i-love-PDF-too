@@ -1,28 +1,43 @@
+import { APIErrorCode, createApiError } from "@/lib/api/errors";
+import { responseFactory } from "@/lib/api/response.factory";
 import { storageService } from "@/lib/storage/factory";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function GET(
 	request: NextRequest,
-	{ params }: { params: { id: string } },
+	props: {params : Promise<{id : string}>},
 ) {
-	const fileId = params.id;
+    const params = await props.params;
+	const { id } = params;
 	try {
-        const file = await storageService.getFileUrl(fileId);
-        return NextResponse.json({ file }, { status: 200 });
+        const file = storageService.getFileUrl(id);
+        return responseFactory.createSuccess<{ file: string }>({ file }, 200);
 	} catch (error) {
-        return NextResponse.json({ error: "Failed to get file" }, { status: 500 });
+        return responseFactory.createError(
+            createApiError(APIErrorCode.INTERNAL_SERVER_ERROR, {
+                message: "Failed to get file",
+                error,
+            }),
+            500,
+        );
     }
 }
 
 
-export async function DELETE(request: NextRequest, {params} : {params : {id : string}}) {
-
-    const fileId = params.id;
+export async function DELETE(request: NextRequest, props: {params : Promise<{id : string}>}) {
+    const params = await props.params;
+    const { id } = params;
     try {
-        await storageService.deleteFile(fileId);
-        return NextResponse.json({ message: "File deleted successfully" }, { status: 200 });
+        await storageService.deleteFile(id);
+        return responseFactory.createSuccess<{ message: string, deleted: boolean }>({ message: "File deleted successfully", deleted: true }, 200);
     } catch (error) {
-        return NextResponse.json({ error: "Failed to delete file" }, { status: 500 });
+        return responseFactory.createError(
+            createApiError(APIErrorCode.INTERNAL_SERVER_ERROR, {
+                message: "Failed to delete file",
+                error,
+            }),
+            500,
+        );
     }
 
 }
