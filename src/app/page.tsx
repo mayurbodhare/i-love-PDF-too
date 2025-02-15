@@ -6,17 +6,16 @@ import HowItWorksSection from "@/components/ui/HowItWorksSection";
 import PricingSection from "@/components/ui/PricingSection";
 import TestimonialsSection from "@/components/ui/TestimonialsSection";
 
-
 export default function Home() {
-  return (
-    <>
-     <HeroSection />
-     <FeaturesSection />
-     <HowItWorksSection />
-     <TestimonialsSection />
-     <PricingSection />
-     <FAQSection  />
-     <ContactSection />
-    </>
-  );
+	return (
+		<>
+			<HeroSection />
+			<FeaturesSection />
+			<HowItWorksSection />
+			<TestimonialsSection />
+			<PricingSection />
+			<FAQSection />
+			<ContactSection />
+		</>
+	);
 }

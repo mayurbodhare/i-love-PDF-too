@@ -58,6 +58,7 @@ This project is a web application inspired by iLovePDF, providing users with var
 
 3. Configure environment variables:
    - Create a `.env` file in the root directory.
+   - Use `.env.sample` file for reference.
    - Add the following:
      ```env
      DATABASE_URL=your_postgresql_connection_string
@@ -67,18 +68,28 @@ This project is a web application inspired by iLovePDF, providing users with var
      AWS_BUCKET_NAME=your_s3_bucket_name
      ```
 
-4. Initialize Prisma:
-   ```bash
-   npx prisma generate
-   npx prisma migrate dev
-   ```
+4. Starting redis dockerDocker
+   - Ensure Docker is installed and running on your machine.
+   - Build and start the Docker containers:
+      ```bash
+      docker-compose up --build
+      ```
 
-5. Start the development server:
+5. Starting the Worker
+   - Open a new terminal window.
+   - Navigate to the project directory.
+   - Start the worker:
+      ```bash
+      npm run start:merge-worker
+      ```
+
+
+6. Start the development server:
    ```bash
    npm run dev
    ```
 
-6. Open the app in your browser:
+7. Open the app in your browser:
    ```
    http://localhost:3000
    ```

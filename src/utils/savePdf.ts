@@ -18,7 +18,10 @@ async function ensureDirExists() {
 	}
 }
 
-async function savePdfOnServer(file: File, filename: string): Promise<SavedFile> {
+async function savePdfOnServer(
+	file: File,
+	filename: string,
+): Promise<SavedFile> {
 	try {
 		await ensureDirExists();
 
