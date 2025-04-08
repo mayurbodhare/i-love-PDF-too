@@ -1,7 +1,7 @@
 import { APIErrorCode, createApiError } from "@/lib/api/errors";
 import { errorResponse, successResponse } from "@/lib/api/response.factory";
 import { storageService } from "@/lib/storage/factory";
-import { FileMeta } from "@/types/storage";
+import type { FileMeta } from "@/types/storage";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function GET(
@@ -19,8 +19,8 @@ export async function GET(
 
 		const fileUrl = storageService.getFileUrl(id);
 		return successResponse<{ file: string }>({ file: fileUrl }, 200);
-	} catch (error: any) {
-		if (error.code === 404) {
+	} catch (error: unknown) {
+		if ((error as { code?: number }).code === 404) {
 			return errorResponse(
 				createApiError(APIErrorCode.NOT_FOUND, {
 					message: "File not found",

@@ -1,4 +1,4 @@
-import { mergePdfs } from "@/services/mergePdfs";
+import { mergePdfs } from "@/utils/mergePdfs";
 import savePdfOnServer from "@/utils/savePdf";
 import { type NextRequest, NextResponse } from "next/server";
 

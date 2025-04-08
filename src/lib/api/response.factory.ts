@@ -5,6 +5,7 @@ import type {
 	ResponseFormatter,
 } from "./core/response.interface";
 import { DefaultFormatter } from "./formatters/default.formatter";
+import { headers } from "next/headers";
 
 export class ResponseFactory {
 	constructor(private formatter: ResponseFormatter) {}
@@ -13,10 +14,23 @@ export class ResponseFactory {
 		data: T,
 		status: number,
 		meta?: Record<string, unknown>,
+		options? : {
+			isRaw? : boolean,
+			headers? : HeadersInit
+		}
 	): NextResponse<ApiResponse<T>> {
+
+		if (options?.isRaw) {
+			return new NextResponse(data as BodyInit, {
+				status,
+				headers : options.headers
+			})
+		}
+
 		const response = this.formatter.formatSuccess(data, status, meta);
 		return NextResponse.json(response, { status });
 	}
+
 
 	createError(
 		error: ApiError,
